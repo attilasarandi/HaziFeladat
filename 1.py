@@ -238,6 +238,22 @@ def feladat_20_2(n):
         x=x+y
         y=x-y
         k=k+1
+def feladat_21(n):
+    ujszam=0
+    while n!=0:
+        ujszam=ujszam*10+n%10
+        n=n//10
+    return ujszam
+
+def feladat_22(alap,kitevo):
+    eredmeny=1
+    while kitevo>0:
+        if kitevo%2!=0:
+            eredmeny=eredmeny*alap
+            kitevo=kitevo-1
+        alap=alap*alap
+        kitevo=kitevo//2
+    return eredmeny
 def main():
     feladat_1(5,2)
     feladat_2()
@@ -258,6 +274,10 @@ def main():
     print(feladat_18(45,17))
     print(feladat_19(11))
     feladat_20_1(5)
+    print()
     feladat_20_2(5)
+    print()
+    print(feladat_21(135))
+    print(feladat_22(3,4))
 if __name__ == '__main__':
     main()
