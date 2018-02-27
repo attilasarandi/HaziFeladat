@@ -20,6 +20,20 @@ def feladat_2():
         print(a,c,b)
     elif a<b and a>c and b>c:
         print(c,a,b)
+    elif a==b and a>c:
+        print(c,b,a)
+    elif a==b and a<c:
+        print(a,b,c)
+    elif a==c and a>b:
+        print(b,a,c)
+    elif a==c and a<b:
+        print(a,c,b)
+    elif b==c and b>a:
+        print(a,b,c)
+    elif b==c and b<a:
+        print(b,c,a)
+    else:
+        print(a,b,c)
 def feladat_3(x):
     if x>-2 and x<0:
         return 2*x
@@ -333,6 +347,79 @@ def feladat_29(szam):
         fakt=fakt*szam
         szam=szam- 1
     return fakt
+def feladat_30():
+    ev=int(input("ev:"))
+    ho=int(input("honap:"))
+    nap=int(input("nap:"))
+    a=0
+    for i in range(1,ho):
+        if i==4 or i==6 or i==9 or i==11:
+            a=a+30
+        elif i==2:
+            if ev%4==0 and ev%100!=0:
+                 a=a+29
+            else:
+                a=a+28
+        elif i==1 or i==3 or i==5 or i==7 or i==8 or i==10 or i==12:
+            a=a+31
+    a=a+nap
+    return a
+def feladat_31(n):
+    for i in range(1,n//2):
+        if n%i==0:
+            print(i,end=" ")
+    print(n)
+def feladat_32(n1,n2):
+    k=int(input("k-val osztható szám="))
+    for i in range(n1+1,n2):
+        if i%k==0:
+            print(i,end=" ")
+def feladat_33(n):
+    db=0
+    max=1
+    for i in range(1,n):
+        if n%i==0:
+            db=db+1
+            max=i
+        if max<db:
+            max=db
+    return max
+def feladat_35(n):
+    uj=[]
+    for i in range(1,n):
+        if feladat_19(i):
+            uj.append(i)
+    for a in uj:
+        for b in uj:
+            if abs(b-a)==2:
+                print(a,b)
+def feladat_36(n):
+    a=1
+    b=1
+    k=1
+    db=0
+    for i in range(n):
+        if b<n:
+            a=a+b
+            b=a-b
+            k=k+1
+            db=db+1
+        if i==b:
+            break
+    return db
+def feladat_37(n):
+    a=1
+    b=1
+    k=1
+    db=0
+    for i in range(n):
+        a=a+b
+        b=a-b
+        k=k+1
+        db=db+1
+        if b>n:
+            return b
+
 def main():
     feladat_1(5,2)
     feladat_2()
@@ -366,5 +453,12 @@ def main():
     feladat_28(26)
     print()
     print(feladat_29(5))
+    print(feladat_30())
+    feladat_31(100)
+    print(feladat_32(16,67))
+    print(feladat_33(60))
+    feladat_35(8)
+    print(feladat_36(6))
+    print(feladat_37(6))
 if __name__ == '__main__':
     main()
