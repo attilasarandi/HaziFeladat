@@ -42,13 +42,44 @@ def feladat_1(n):
     else:
         return False
 
+def prim_e(n):
+    for i in range(2,n):
+        if n%i==0:
+            return False
+    return True
+def feladat_2(n):
+    p=[2,3,5]
+    a=6
+    while len(p)<n:
+        if prim_e(a):
+            p.append(a)
+        a=a+1
+    return p[n-1]
+def feladat_3(n):
+    a=1
+    while 2*a<n:
+        a=a*2
+    print(2*a)
 
 
-
-
+def feladat_6(x,y):
+    db=0
+    x=str(x)
+    y=str(y)
+    for i in range(len(x)):
+        for j in range(len(y)):
+            if x[i]==y[j]:
+                db=db+1
+    if db>=2:
+        return True
+    else:
+        return False
 def main():
     print(feladat_11())
     print(feladat_1(8))
+    print((feladat_2(5)))
+    feladat_3(513)
+    print(feladat_6(123,302))
 if __name__ == '__main__':
     main()
 
