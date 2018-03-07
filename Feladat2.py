@@ -48,8 +48,8 @@ def prim_e(n):
             return False
     return True
 def feladat_2(n):
-    p=[2,3,5]
-    a=6
+    p=[2]
+    a=3
     while len(p)<n:
         if prim_e(a):
             p.append(a)
@@ -60,6 +60,21 @@ def feladat_3(n):
     while 2*a<n:
         a=a*2
     print(2*a)
+def feladat_4():
+    a=0
+    for i in range(1,10):
+        a=a+1
+        b=0
+        for j in range(9):
+            b=b+1
+            c=0
+            if b!=c and a!=b and c!=a:
+                print(a,b,c)
+            for x in range(9):
+                c=c+1
+                if a!=b and b!=c and a!=c:
+                    print(a,b,c)
+
 
 
 def feladat_6(x,y):
@@ -74,12 +89,26 @@ def feladat_6(x,y):
         return True
     else:
         return False
+def feladat_7(x,y):
+    db = 0
+    x=str(x)
+    y=str(y)
+    for i in range(len(x)):
+        for j in range(len(y)):
+            if x[i] == y[j]:
+                db=db+1
+    if db>=1:
+        return True
+    else:
+        return False
 def main():
-    print(feladat_11())
-    print(feladat_1(8))
-    print((feladat_2(5)))
-    feladat_3(513)
-    print(feladat_6(123,302))
+     print(feladat_11())
+     print(feladat_1(8))
+     print((feladat_2(5)))
+     feladat_3(513)
+     feladat_4()
+     print(feladat_6(123,302))
+     print(feladat_7(11,212))
 if __name__ == '__main__':
     main()
 
