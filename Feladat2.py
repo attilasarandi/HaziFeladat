@@ -1,3 +1,4 @@
+import codecs as cs
 def feladat_11():
     ev1=int(input("ev_1:"))
     ho1=int(input("honap_1:"))
@@ -101,6 +102,53 @@ def feladat_7(x,y):
         return True
     else:
         return False
+def feladat_8(n):
+    i=1
+    a=0
+    db=0
+    while True:
+        a=a+i
+        i=i+1
+        db=db+1
+        if a>=n:
+            break
+    print(db)
+def feladat_9():
+    i=1
+    a=0
+    while True:
+        i=i+1
+        a=a+1/i
+        if a==300:
+            break
+    print(i)
+def feladat_10():
+    try:
+        file=cs.open("be.txt",encoding='utf-8',mode="r")
+        max=0
+        for sor in file:
+            sor=sor.strip()
+            if (sor[0].isupper())and(len(sor)>max):
+                max=len(sor)
+        print(max)
+        file.close()
+    except Exception as e:
+        print(e)
+def feladat_11():
+    try:
+        file=cs.open("be.txt",encoding='utf-8',mode="r")
+        min=0
+        for sor in file:
+            sor=sor.strip()
+            for i in range(len(sor)):
+                if (sor[i]==".") or (sor[i]=="!") or (sor[i]=="?") and (len(sor)<min):
+                    min=len(sor)
+            print(min)
+        file.close()
+    except Exception as e:
+        print(e)
+
+
 def main():
      print(feladat_11())
      print(feladat_1(8))
@@ -109,6 +157,10 @@ def main():
      feladat_4()
      print(feladat_6(123,302))
      print(feladat_7(11,212))
+     feladat_8(7)
+     feladat_9()
+     feladat_10()
+     feladat_11()
 if __name__ == '__main__':
     main()
 
