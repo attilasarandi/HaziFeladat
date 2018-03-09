@@ -75,8 +75,18 @@ def feladat_4():
                 c=c+1
                 if a!=b and b!=c and a!=c:
                     print(a,b,c)
-
-
+def ostok_szama(n):
+    db=2
+    for i in range(2,n//2+1):
+        if n%i==0:
+            db=db+1
+    return db
+def feladat_5(n):
+    max=1
+    for i in range(2,n+1):
+        if max<ostok_szama(i):
+            max=ostok_szama(i)
+            print(i)
 
 def feladat_6(x,y):
     db=0
@@ -150,17 +160,18 @@ def feladat_11():
 
 
 def main():
-     print(feladat_11())
-     print(feladat_1(8))
-     print((feladat_2(5)))
-     feladat_3(513)
-     feladat_4()
-     print(feladat_6(123,302))
-     print(feladat_7(11,212))
-     feladat_8(7)
-     feladat_9()
-     feladat_10()
-     feladat_11()
+    print(feladat_11())
+    print(feladat_1(8))
+    print((feladat_2(5)))
+    feladat_3(513)
+    feladat_4()
+    feladat_5(20)
+    print(feladat_6(123, 302))
+    print(feladat_7(11, 212))
+    feladat_8(7)
+    feladat_9()
+    feladat_10()
+    feladat_11()
 if __name__ == '__main__':
     main()
 
