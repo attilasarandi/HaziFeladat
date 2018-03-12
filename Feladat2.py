@@ -157,8 +157,42 @@ def feladat_11():
         file.close()
     except Exception as e:
         print(e)
+def feladat_12():
+    try:
 
-
+        file=open("be.txt",mode="r")
+        file1=open("ki.txt",mode="w")
+        db=1
+        for sor in file:
+            sor=sor.split(" ")
+            for i in range(len(sor)-1):
+                if sor[i]==sor[i+1]:
+                    db=db+1
+            if db>=int(sor[len(sor)-1]):
+                file1.write("True")
+            else:
+                file1.write("False")
+        file.close()
+        file1.close()
+    except Exception as e:
+        print(e)
+def feladat_13():
+    try:
+        file=open("be.txt",mode="r")
+        db=0
+        for sor in file:
+            sor=sor.split(" ")
+            for i in range(len(sor)-1):
+                for j in range(i+1,len(sor)-1):
+                    a=int(sor[i])
+                    b=int(sor[j])
+                    c=int(sor[len(sor)-1])
+                    if abs(a-b)<=c:
+                        db=db+1
+            print(db)
+        file.close()
+    except Exception as e:
+        print(e)
 def main():
     print(feladat_11())
     print(feladat_1(8))
@@ -172,6 +206,8 @@ def main():
     feladat_9()
     feladat_10()
     feladat_11()
+    feladat_12()
+    feladat_13()
 if __name__ == '__main__':
     main()
 
