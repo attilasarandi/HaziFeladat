@@ -193,6 +193,73 @@ def feladat_13():
         file.close()
     except Exception as e:
         print(e)
+def feladat_15():
+    try:
+        file = open("be.txt", mode="r")
+        file1 = open("ki.txt", mode="w")
+        for sor in file:
+            sor=sor.strip()
+            if sor != "":
+                    sor=sor.split(" ")
+            else:
+                break
+            for i in sor:
+                file1.write("%s\n" % (i))
+        file.close()
+        file1.close()
+    except OSError:
+        print("hiba")
+    except Exception as a:
+        print(a)
+def feladat_16():
+    try:
+        file=cs.open("be.txt",encoding='utf-8',mode="r")
+        file1=open("ki.txt",mode="w")
+        nagy=True
+        for sor in file:
+            sor=sor.strip()
+            li=sor.split(" ")
+            for szo in li:
+                if not(szo[0].isupper()):
+                    nagy=False
+                    break
+            if nagy:
+                file1.write("%s\n"%(sor))
+                break
+
+            else:
+                nagy=True
+        file.close()
+        file1.close()
+    except FileExistsError:
+        print("file nem létezik")
+    except Exception:
+        print("valamilyen hibat dobott!")
+def feladat_17():
+    try:
+        file=cs.open("be.txt",encoding='utf-8',mode="r")
+        file1=open("ki.txt",mode="w")
+        nagy=True
+        for sor in file:
+            sor=sor.strip()
+            li=sor.split(" ")
+            for szo in li:
+                if not(szo[0].islower()):
+                    nagy=False
+                    break
+            if nagy:
+                    sor = str(sor)
+                    file1.write(sor)
+                    file1.write("\n")
+                    break
+            else:
+                    nagy=True
+        file.close()
+        file1.close()
+    except FileExistsError:
+        print("nem letezik a file!")
+    except Exception:
+        print("valamilyen kivetelt dobott!")
 def main():
     print(feladat_11())
     print(feladat_1(8))
@@ -208,6 +275,9 @@ def main():
     feladat_11()
     feladat_12()
     feladat_13()
+    feladat_15()
+    feladat_16()
+    feladat_17()
 if __name__ == '__main__':
     main()
 
