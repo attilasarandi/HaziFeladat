@@ -260,6 +260,95 @@ def feladat_17():
         print("nem letezik a file!")
     except Exception:
         print("valamilyen kivetelt dobott!")
+def feladat_18():
+    try:
+        file=open("be.txt",mode="r")
+        for sor in file:
+            sor=sor.strip()
+            sor=sor.split(" ")
+            a=sor[len(sor)-1]
+            b=a.split(":")
+            if int(b[0])>int(b[1]):
+                print(sor[0])
+            else:
+                print(sor[2])
+        file.close()
+    except OSError:
+        print("hibat talalt")
+    except Exception as a:
+        print(a)
+def feladat_19():
+    try:
+        file=open("be.txt",mode="r")
+        max=0
+        poz=""
+        for sor in file:
+            sor=sor.strip()
+            sor=sor.split(" ")
+            for x in sor:
+                a=int(sor[1])
+                if a>max:
+                    max=a
+                    poz=x
+        print(poz)
+        file.close()
+    except OSError:
+        print("hiba")
+    except Exception as a:
+        print(a)
+def feladat_20():
+    try:
+        file=cs.open("be.txt",encoding='utf-8',mode="r")
+        max=0
+        poz=""
+        for sor in file:
+            sor=sor.strip()
+            sor=sor.split(";")
+            a=int(sor[2])
+            if a>max:
+                max=a
+                poz=sor[0]
+        print(poz)
+        file.close()
+    except OSError:
+        print("hiba")
+    except Exception as a:
+        print(a)
+def feladat_21():
+    try:
+        file=open("be.txt",mode="r")
+        max=0
+        poz=""
+        for sor in file:
+            sor=sor.strip()
+            sor=sor.split(";")
+            sum=0
+            for i in range(1,len(sor)):
+                sum=sum+int(sor[i])
+                if sum>max:
+                    max=sum
+                    poz=sor[0]
+        print(poz)
+        file.close()
+    except Exception as e:
+        print(e)
+def feladat_22():
+    try:
+        file=open("be.txt",mode="r")
+        min=9999
+        poz=""
+        for sor in file:
+            sor=sor.strip()
+            sor=sor.split(";")
+            sor[2]=float(sor[2])
+            if sor[2]<min:
+                min=sor[2]
+                poz=sor[0]
+        print(poz)
+        file.close()
+    except Exception as e:
+        print(e)
+
 def main():
     print(feladat_11())
     print(feladat_1(8))
@@ -278,6 +367,11 @@ def main():
     feladat_15()
     feladat_16()
     feladat_17()
+    feladat_18()
+    feladat_19()
+    feladat_20()
+    feladat_21()
+    feladat_22()
 if __name__ == '__main__':
     main()
 
