@@ -348,7 +348,55 @@ def feladat_22():
         file.close()
     except Exception as e:
         print(e)
-
+def feladat_23():
+    try:
+        a=True
+        file=open("be.txt",mode="r")
+        lista=[]
+        for sor in file:
+            sor=sor.strip()
+            sor=sor.split(" ")
+            b=sor[1]
+            lista.append(b)
+            for i in range(len(lista)-1):
+                if int(lista[i])>int(lista[i+1]):
+                    a=False
+                    break
+        if a:
+            print("Yes")
+        else:
+            print("No")
+        file.close()
+    except Exception as e:
+        print(e)
+def feladat_24():
+    try:
+        file=open("be.txt",mode="r")
+        lista=[]
+        for sor in file:
+            sor=sor.strip()
+            sor=sor.split(" ")
+            lista.append(sor)
+        a=lista[1]
+        b=lista[2]
+        sum_a=0
+        sum_b=0
+        for i in a:
+            sum_a=sum_a+int(i)
+        for j in b:
+            sum_b=sum_b+int(j)
+        if sum_a>sum_b:
+            print(sum_a*2)
+            print("Turtle")
+        elif sum_a<sum_b:
+            print(sum_b*2)
+            print("Snail")
+        else:
+            print(sum_a*2)
+            print("Draw")
+        file.close()
+    except Exception as e:
+        print(e)
 def main():
     print(feladat_11())
     print(feladat_1(8))
@@ -372,6 +420,8 @@ def main():
     feladat_20()
     feladat_21()
     feladat_22()
+    feladat_23()
+    feladat_24()
 if __name__ == '__main__':
     main()
 
