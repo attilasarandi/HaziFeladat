@@ -1,4 +1,5 @@
 import codecs as cs
+import sys
 def feladat_11():
     ev1=int(input("ev_1:"))
     ho1=int(input("honap_1:"))
@@ -397,6 +398,72 @@ def feladat_24():
         file.close()
     except Exception as e:
         print(e)
+def feladat_25():
+    try:
+        lista=[]
+        lista1=[]
+        lista2=[]
+        db=0
+        db1=0
+        file=open("szotar.txt",mode="r")
+        for sor in file:
+            sor=sor.strip()
+            lista.append(sor)
+        lista.remove(lista[0])
+        for i in lista:
+            i=i.split(":")
+            lista1.append(i[0])
+            lista2.append(i[1])
+        print(lista1)
+        print(lista2)
+        for i in range(int(len(lista1)-1)):
+            for j in range(i+1,int(len(lista1))):
+                if lista1[i]!=lista1[j]:
+                    db=db+1
+        print(db//2)
+        for i in range(len(lista2)-1):
+            for j in range(i+1,len(lista2)):
+                if lista2[i]!=lista2[j]:
+                    db1=db1+1
+        print(db1//2)
+    except Exception as e:
+        print(e)
+def feladat_26():
+    try:
+        db = 0
+        db1 = 0
+        lista = []
+        lista1 = []
+        lista2 = []
+        file = open(sys.argv[1], mode="r")
+        file1 = open(sys.argv[2], mode="r")
+        file2 = open("ki.txt", mode="w")
+        for sor in file:
+            sor = sor.strip()
+            lista.append(sor)
+            db=db+1
+        print(lista)
+        for sor1 in file1:
+            sor1 = sor1.strip()
+            lista1.append(sor1)
+            db1=db1+1
+        print(lista1)
+        for x in lista:
+            for y in lista1:
+                if x not in y:
+                    lista2.append(x)
+        file2.write("%d %d\n" % (db, db1))
+        for z in range(len(lista2) - 1):
+            if lista2[z] == lista2[z + 1]:
+                a = lista2[z]
+                a = str(a)
+                file2.write("%s\n" % (a))
+                print(a)
+        file.close()
+        file1.close()
+        file2.close()
+    except Exception as e:
+        print(e)
 def main():
     print(feladat_11())
     print(feladat_1(8))
@@ -422,6 +489,8 @@ def main():
     feladat_22()
     feladat_23()
     feladat_24()
+    feladat_25()
+    feladat_26()
 if __name__ == '__main__':
     main()
 
