@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.image as mping
 def feladat_1():
     lista=[]
     n=int(input("db szam:"))
@@ -190,6 +192,11 @@ def feladat_16(matrix,matrix1,n,m):
         for j in range(m):
             matrix1[i][j]=matrix[j][i]
     print(matrix1)
+def feladat_17(x):
+    a=np.power(-x,3)
+    c=np.log(abs(x))
+    b=np.power(x,(1/3))*(1/(1+x))*np.power(2,a*c)
+    return b
 def main():
     feladat_1()
     feladat_2(5)
@@ -262,5 +269,11 @@ def main():
             matrix[i][j] = (input())
     matrix1 = np.zeros((m, n), dtype="d")
     feladat_16(matrix, matrix1, n, m)
+    x = np.arange(-15, 2, 0.1)
+    y = feladat_17(x)
+    plt.plot(x, y, "b-")
+    plt.xlabel('x elemei')
+    plt.ylabel('y=f(x) elemei')
+    plt.show()
 if __name__ == '__main__':
     main()
