@@ -36,20 +36,18 @@ class LancoltLista:
             tmp=tmp.next
         print("None")
     def append(self,data,data_from):
-        asd=0
         new_append=Node(data)
         if self.head==None:
             self.head=new_append
         else:
             tmp=self.head
             a=False
-            b=False
             while tmp!=None:
                 if tmp.data==data_from:
-                    asd=tmp.next
+                    b=tmp.next
                     tmp.next=new_append
                     new_append=tmp
-                    tmp.next.next=asd
+                    tmp.next.next=b
 
                     a=True
 
